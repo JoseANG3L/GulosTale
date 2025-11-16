@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=4 uid="uid://b3wex7y6pu22k"]
+
+[ext_resource type="Texture2D" uid="uid://ddfnc7bbui5ko" path="res://sprites/objects_atlas.png" id="1_0yc6e"]
+[ext_resource type="Script" uid="uid://cqc6du4mbx4h7" path="res://scenes/tile_map_layer.gd" id="2_ljgss"]
+[ext_resource type="PackedScene" uid="uid://ck6xlr4y2g0wi" path="res://objects/platform.tscn" id="3_h2el2"]
+[ext_resource type="PackedScene" uid="uid://c337xqxdrggno" path="res://objects/fruit.tscn" id="4_m5wt3"]
+[ext_resource type="PackedScene" uid="uid://dyjli5su6ty13" path="res://actors/enemy.tscn" id="5_mycer"]
+[ext_resource type="PackedScene" uid="uid://cfbd23q7nt52g" path="res://objects/spike.tscn" id="5_wkftw"]
+[ext_resource type="PackedScene" uid="uid://deukl5prvh1oy" path="res://actors/flyenemy.tscn" id="7_dml8f"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o3h04"]
+texture = ExtResource("1_0yc6e")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0/terrains_peering_bit/right_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0/terrains_peering_bit/right_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0/terrains_peering_bit/left_side = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 1
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 1
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0/terrains_peering_bit/right_side = 1
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 1
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0/terrains_peering_bit/right_side = 1
+2:1/0/terrains_peering_bit/left_side = 1
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 1
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:1/0/terrains_peering_bit/left_side = 1
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yg4vx"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.95933, 0.899375, 0.867867, 1)
+terrain_set_0/terrain_1/name = "Spykes"
+terrain_set_0/terrain_1/color = Color(0.710025, 0.254658, 0.417306, 1)
+sources/0 = SubResource("TileSetAtlasSource_o3h04")
+
+[node name="Level" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wEAAAABAAAAAAD//wEAAAACAAAAAAAAAAEAAAACAAAAAAABAAEAAAACAAAAAAACAAEAAAACAAAAAAADAAEAAAACAAAAAAAEAAEAAAACAAAAAAAFAAEAAAADAAAAAAAEAAAAAAABAAAAAAAFAAAAAAACAAAAAAAGAAAAAAACAAAAAAAHAAAAAAACAAAAAAAIAAAAAAADAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD+//7/AAAAAAAAAAD+//3/AAAAAAAAAAD+//z/AAAAAAAAAAD+//v/AAAAAAAAAAD+//r/AAABAAAAAAD+//n/AAAAAAAAAAD+//j/AAAAAAAAAAD+//f/AAAAAAAAAAD+//b/AAAAAAAAAAD+//X/AAABAAAAAAD+//T/AAAAAAAAAAD+//P/AAAAAAAAAAD+//L/AAAAAAAAAAD+//H/AAAAAAAAAAD+//D/AAAAAAAAAAD+/+//AAABAAAAAAD+/+7/AAAAAAAAAAD+/+3/AAAAAAAAAAD+/+z/AAAAAAAAAAD+/+v/AAAAAAAAAAD+/+r/AAAAAAAAAAD+/+n/AAAAAAAAAAD+/+j/AAAAAAAAAAD+/+f/AAABAAAAAAD//+f/AAACAAAAAAAAAOf/AAACAAAAAAABAOf/AAACAAAAAAACAOf/AAACAAAAAAADAOf/AAACAAAAAAAEAOf/AAACAAAAAAAGAOf/AAACAAAAAAAHAOf/AAACAAAAAAAIAOf/AAADAAAAAAAFAOf/AAACAAAAAAAIAOj/AAAAAAAAAAAIAOn/AAAAAAAAAAAIAOr/AAAAAAAAAAAIAOv/AAAAAAAAAAAIAOz/AAAAAAAAAAAIAO3/AAABAAAAAAAIAO7/AAAAAAAAAAAIAO//AAAAAAAAAAAJAO3/AAACAAAAAAAKAO3/AAACAAAAAAALAO3/AAACAAAAAAAMAO3/AAACAAAAAAANAO3/AAACAAAAAAAOAO3/AAACAAAAAAAPAO3/AAACAAAAAAAQAO3/AAACAAAAAAARAO3/AAACAAAAAAASAO3/AAADAAAAAAAMAO7/AAAAAAAAAAAMAO//AAAAAAAAAAASAO7/AAAAAAAAAAASAO//AAAAAAAAAAASAPD/AAAAAAAAAAASAPH/AAAAAAAAAAASAPL/AAAAAAAAAAASAPP/AAADAAAAAAARAPP/AAACAAAAAAAQAPP/AAACAAAAAAAPAPP/AAACAAAAAAAOAPP/AAACAAAAAAANAPP/AAACAAAAAAAMAPP/AAACAAAAAAALAPP/AAACAAAAAAAKAPP/AAACAAAAAAAJAPP/AAACAAAAAAAIAPP/AAACAAAAAAAHAPP/AAACAAAAAAAGAPP/AAACAAAAAAAFAPP/AAACAAAAAAAEAPP/AAACAAAAAAADAPP/AAABAAAAAAAEAPL/AAADAAAAAAADAPL/AAABAAAAAAAIAPL/AAAAAAAAAAADAPH/AAAAAAAAAAADAPD/AAAAAAAAAAADAO//AAAAAAAAAAADAO7/AAAAAAAAAAADAO3/AAAAAAAAAAADAOz/AAAAAAAAAAADAOv/AAACAAAAAAABAOv/AAABAAAAAAACAOv/AAACAAAAAAAEAOv/AAACAAAAAAAFAOv/AAACAAAAAAAGAOv/AAADAAAAAAD//+//AAACAAAAAAAAAO//AAADAAAAAAD///X/AAACAAAAAAAAAPX/AAADAAAAAAAHAPf/AAABAAAAAAAIAPf/AAADAAAAAAD///r/AAACAAAAAAAAAPr/AAACAAAAAAABAPr/AAACAAAAAAACAPr/AAACAAAAAAADAPr/AAACAAAAAAAEAPr/AAACAAAAAAAFAPr/AAACAAAAAAAGAPr/AAADAAAAAAAEAPn/AAABAAAAAAAFAPn/AAACAAAAAAAGAPn/AAACAAAAAAAHAPn/AAACAAAAAAAIAPn/AAACAAAAAAAJAPn/AAACAAAAAAAKAPn/AAACAAAAAAALAPn/AAACAAAAAAAMAPn/AAACAAAAAAANAPn/AAACAAAAAAAOAPn/AAADAAAAAAASAPT/AAAAAAAAAAASAPX/AAAAAAAAAAASAPb/AAAAAAAAAAASAPf/AAAAAAAAAAASAPj/AAAAAAAAAAASAPn/AAAAAAAAAAASAPr/AAAAAAAAAAASAPv/AAAAAAAAAAASAPz/AAAAAAAAAAAIAP3/AAABAAAAAAAJAP3/AAADAAAAAAAJAP7/AAADAAAAAAAJAP//AAACAAAAAAAIAP//AAABAAAAAAAIAP7/AAABAAAAAAAKAP//AAACAAAAAAALAP//AAACAAAAAAAMAP//AAADAAAAAAAMAP7/AAABAAAAAAANAP7/AAACAAAAAAAOAP7/AAACAAAAAAAPAP7/AAACAAAAAAAQAP7/AAACAAAAAAARAP7/AAACAAAAAAASAP7/AAACAAAAAAATAP7/AAADAAAAAAAOAP3/AAAAAAAAAAASAP3/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_yg4vx")
+script = ExtResource("2_ljgss")
+
+[node name="Fruits" type="Node" parent="."]
+
+[node name="Fruit" parent="Fruits" instance=ExtResource("4_m5wt3")]
+position = Vector2(54, -38)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("3_h2el2")]
+position = Vector2(432, -304)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("3_h2el2")]
+position = Vector2(400, -304)
+
+[node name="Tramps" type="Node" parent="."]
+
+[node name="Spike" parent="Tramps" instance=ExtResource("5_wkftw")]
+position = Vector2(528, -77)
+scale = Vector2(3, 0.8)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(168, -245)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("5_mycer")]
+position = Vector2(348, -48)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("5_mycer")]
+position = Vector2(415, -337)
+
+[node name="FlyEnemy" parent="Enemies" instance=ExtResource("7_dml8f")]
+position = Vector2(313, -304)
+
+[node name="FlyEnemy2" parent="Enemies" instance=ExtResource("7_dml8f")]
+position = Vector2(90, -271)

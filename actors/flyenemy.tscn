@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://deukl5prvh1oy"]
+
+[ext_resource type="Script" uid="uid://chyi1s0j27xo5" path="res://scripts/flyenemy.gd" id="1_x7kks"]
+[ext_resource type="Texture2D" uid="uid://ds6mj112ochlv" path="res://tileset/bubble.png" id="2_d8oq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3r6h"]
+size = Vector2(5, 22)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_icqrp"]
+radius = 14.0
+height = 32.0
+
+[node name="FlyEnemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 24
+script = ExtResource("1_x7kks")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.937255, 0.172549, 0.427451, 1)
+texture_filter = 1
+texture = ExtResource("2_d8oq1")
+
+[node name="AreaHit" type="Area2D" parent="Sprite2D"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AreaHit"]
+position = Vector2(14, 0)
+shape = SubResource("RectangleShape2D_o3r6h")
+
+[node name="RayCastPlatform" type="RayCast2D" parent="Sprite2D"]
+position = Vector2(15, 0)
+target_position = Vector2(5, 0)
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_icqrp")
+
+[connection signal="area_entered" from="Sprite2D/AreaHit" to="." method="_on_platform_detect_area_entered"]
+[connection signal="body_entered" from="Sprite2D/AreaHit" to="." method="_on_area_2d_body_entered"]

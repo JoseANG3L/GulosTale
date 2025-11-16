@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfbd23q7nt52g"]
+
+[ext_resource type="Script" uid="uid://dfhdn7tpxwopu" path="res://scripts/spike.gd" id="1_jogk8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a2w1"]
+size = Vector2(32, 32)
+
+[node name="Spike" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_jogk8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7a2w1")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
